@@ -386,7 +386,7 @@ if ( file_exists ( $includeContent ) ) {
                     echo '               
                                         </textarea></td>
                                         <td style="text-align: right;">
-                                            <a class="tooltip"><img src="../images/lightbulb_sm.png" alt="help" /><span>You can enter the following variables that will be changed into their actual values on runtime:<br /><br />@fname - Target\'s first name<br />@lname - Target\'s last name<br />@url - Allows you to wrap your own text with the phishing URL (requires you to build your own anchor and put @url in the href attribute)<br />@link - Will be displayed to user as the fake link you provide.<br /><br />@url or @link <strong>must</strong> be present in the \'Message\' field!</span></a>
+                                            <a class="tooltip"><img src="../images/lightbulb_sm.png" alt="help" /><span>You can enter the following variables that will be changed into their actual values on runtime:<br /><br />@email - Target\'s email<br />@fname - Target\'s first name<br />@lname - Target\'s last name<br />@url - Allows you to wrap your own text with the phishing URL (requires you to build your own anchor and put @url in the href attribute)<br />@link - Will be displayed to user as the fake link you provide.<br /><br />@url or @link <strong>must</strong> be present in the \'Message\' field!</span></a>
                                         </td>
                                     </tr>
                                     <tr>

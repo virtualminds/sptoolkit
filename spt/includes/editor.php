@@ -297,7 +297,7 @@ if ( isset ( $_REQUEST['type'] ) && $_REQUEST['type'] == "templates" && ! isset 
                     <tr>
                         <td colspan=\"3\" class=\"td_left\"><h3>Editor - " . $name . "</h3></td>
                         <td class=\"td_right\">
-                            <a class=\"tooltip\"><img src=\"../images/lightbulb.png\" alt=\"help\" /><span>Use the editor to edit your template's emails.<br /><br />You may use the following paramters that will be replaced at runtime:<br /><ul><li>@url - exact link</li><li>@link - will present anchor tag with fake link</li><li>@fname - First Name</li><li>@lname - Last Name</li></ul>Hover over each icon in the editor for a little more information about what each does.<br /><br />Click the green checkmark to save your changes.</span></a>
+                            <a class=\"tooltip\"><img src=\"../images/lightbulb.png\" alt=\"help\" /><span>Use the editor to edit your template's emails.<br /><br />You may use the following paramters that will be replaced at runtime:<br /><ul><li>@url - exact link</li><li>@link - will present anchor tag with fake link</li><li>@fname - First Name</li><li>@lname - Last Name</li><li>@email - E-mail</li></ul>Hover over each icon in the editor for a little more information about what each does.<br /><br />Click the green checkmark to save your changes.</span></a>
                         </td>
                     </tr>
                     <tr>

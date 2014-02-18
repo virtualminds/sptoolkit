@@ -242,9 +242,11 @@ while ( $ra = mysql_fetch_assoc ( $r ) ) {
     $message = preg_replace ( "#@link#", $link, $message );
     $message = preg_replace ( "#@fname#", $fname, $message );
     $message = preg_replace ( "#@lname#", $lname, $message );
+    $message = preg_replace ( "#@email#", $current_target_email_address, $message );
     $message = html_entity_decode ( $message, ENT_COMPAT | ENT_HTML401, "UTF-8" );
     $subject = preg_replace ( "#@fname#", $fname, $subject );
     $subject = preg_replace ( "#@lname#", $lname, $subject );
+    $subject = preg_replace ( "#@email#", $current_target_email_address, $subject );
 
     //send the email
     require_once '../includes/swiftmailer/lib/swift_required.php';
