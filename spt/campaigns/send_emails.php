@@ -193,10 +193,10 @@ while ( $ra = mysql_fetch_assoc ( $r ) ) {
         
         //shorten function
         function googl_shorten($longUrl, $apiKey) {
-            $postData = array('longUrl' => $longUrl, 'key' => $apiKey);
+            $postData = array('longUrl' => $longUrl);
             $jsonData = json_encode($postData);
             $curlObj = curl_init();
-            curl_setopt($curlObj, CURLOPT_URL, 'https://www.googleapis.com/urlshortener/v1/url');
+            curl_setopt($curlObj, CURLOPT_URL, 'https://www.googleapis.com/urlshortener/v1/url?key='.$apiKey);
             curl_setopt($curlObj, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($curlObj, CURLOPT_SSL_VERIFYPEER, 0);
             curl_setopt($curlObj, CURLOPT_HEADER, 0);
@@ -206,7 +206,7 @@ while ( $ra = mysql_fetch_assoc ( $r ) ) {
             $response = curl_exec($curlObj);
             $json = json_decode($response);
             curl_close($curlObj);
-            return $json->id;
+            return ($json->id ? $json->id : $longUrl) ;
         }
 
         //added stuff by the spt project
@@ -247,6 +247,9 @@ while ( $ra = mysql_fetch_assoc ( $r ) ) {
     $subject = preg_replace ( "#@fname#", $fname, $subject );
     $subject = preg_replace ( "#@lname#", $lname, $subject );
     $subject = preg_replace ( "#@email#", $current_target_email_address, $subject );
+
+    //Convert friendly name to UTF-8
+    $sender_friendly = '=?UTF-8?B?'.base64_encode($sender_friendly).'?=';
 
     //send the email
     require_once '../includes/swiftmailer/lib/swift_required.php';
@@ -315,6 +318,7 @@ while ( $ra = mysql_fetch_assoc ( $r ) ) {
             -> setTo ( array ( $current_target_email_address => $fname . ' ' . $lname ) )
             -> setContentType ( $content_type )
             -> setBody ( $message )
+            -> setContentType('text/html; charset=UTF-8')
     ;
 
     //specify that the message has been attempted
